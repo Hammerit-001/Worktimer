@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудники</title>
+</head>
+<body>
+<div>
+    <h1 th:align="center">Сотрудники</h1>
+</div>
+<br>
+<div>
+    <a th:href="@{'/admin/add_worker'}">Добавить сотрудника</a>
+</div>
+<br>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Номер</th>
+            <th>ФИО сотрудника</th>
+            <th>Номер телефона</th>
+            <th>Отдел</th>
+            <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="worker : ${workers}">
+            <td th:text="${worker.getWorkerId()}"/>
+            <td th:text="${worker.getWorkerName()}"/>
+            <td th:text="${worker.getWorkerPhone()}"/>
+            <td th:text="${worker.getDepartmentId()}"/>
+            <td th:text="${worker.isOnWork()} ? 'На работе' : 'Не на работе'"/>
+            <td>
+                <a th:href="@{'/admin/edit_worker/' + ${worker.getWorkerId()}}" th:text="Редактировать"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div>
+    <a th:href="@{'/'}">На главную</a>
+</div>
+</body>
+</html>

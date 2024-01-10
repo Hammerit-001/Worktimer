@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить отдел</title>
+</head>
+<body>
+<div th:align="center">
+    <h1>Добавить отдел</h1>
+</div>
+<div class="container">
+    <form th:action="@{/admin/add_department}"
+          th:object="${department}" method="post">
+        <div>
+            <input th:field="*{departmentId}" placeholder="id (*)" hidden/>
+        </div>
+        <div>
+            <h3>Название отдела</h3>
+            <input th:field="*{departmentName}" placeholder="Название отдела"/>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Готово</button>
+            <button formaction="/admin/departments">Отмена</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

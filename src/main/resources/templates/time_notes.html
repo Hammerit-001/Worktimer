@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Учет рабочего времени</title>
+</head>
+<body>
+<div>
+  <h1 th:align="center">Учет рабочего времени</h1>
+</div>
+<br>
+<div>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Номер</th>
+      <th>ФИО сотрудника</th>
+      <th>Номер телефона</th>
+      <th>Отдел</th>
+      <th>Дата</th>
+      <th>Время</th>
+      <th>Статус</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="timenote : ${timenotes}">
+      <td th:text="${timenote.getTimeNoteId()}"/>
+      <td th:text="${timenote.getWorker().getWorkerName()}"/>
+      <td th:text="${timenote.getWorker().getWorkerPhone()}"/>
+      <td th:text="${timenote.getWorker().getDepartmentId()}"/>
+      <td th:text="${timenote.getDate()}"/>
+      <td th:text="${timenote.getTime()}"/>
+      <td th:text="${timenote.isOnWork()} ? 'На работе' : 'Не на работе'"/>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div>
+  <a th:href="@{'/'}">На главную</a>
+</div>
+</body>
+</html>

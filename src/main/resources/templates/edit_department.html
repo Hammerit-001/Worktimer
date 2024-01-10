@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать отдел</title>
+</head>
+<body>
+<div th:align="center">
+    <h1>Редактировать отдел</h1>
+</div>
+<br>
+<div class="container">
+    <form th:action="@{/admin/edit_department}"
+          th:object="${department}" method="post">
+        <div>
+            <input th:field="*{departmentId}" placeholder="id (*)" hidden/>
+        </div>
+        <div>
+            <h3>ФИО сотрудника</h3>
+            <input th:field="*{departmentName}" placeholder="ФИО"/>
+        </div>
+        <br>
+        <div>
+            <a th:href="@{'/admin/delete_department/' + ${department.getDepartmentId()}}" th:text="Удалить"/>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Готово</button>
+            <button formaction="/admin/departments">Отмена</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

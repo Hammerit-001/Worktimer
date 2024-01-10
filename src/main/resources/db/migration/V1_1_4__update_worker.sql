@@ -1,0 +1,1 @@
+alter table workers add column on_work boolean;

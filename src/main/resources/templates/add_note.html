@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Note</title>
+</head>
+<body>
+<div th:align="center">
+    <h1>Просканируйте Вашу карту</h1>
+</div>
+<br>
+<div th:align="center">
+
+</div>
+<br>
+<div class="container">
+    <form th:action="@{/add_note}"
+          th:object="${timeNote}" method="post">
+        <div th:align="center">
+            <input th:field="*{worker}" placeholder="Номер штрихкода" autofocus/>
+        </div>
+    </form>
+</div>
+<br>
+<div>
+    <a th:href="@{'/'}">На главную</a>
+</div>
+</body>
+</html>

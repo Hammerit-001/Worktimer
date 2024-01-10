@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отделы</title>
+</head>
+<body>
+<div>
+    <h1 th:align="center">Отделы</h1>
+</div>
+<br>
+<div>
+    <a th:href="@{'/admin/add_department'}">Добавить отдел</a>
+</div>
+<br>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Название отдела</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="department : ${departments}">
+            <td th:text="${department.getDepartmentId()}"/>
+            <td th:text="${department.getDepartmentName()}"/>
+            <td>
+                <a th:href="@{'/admin/show_department/' + ${department.getDepartmentId()}}" th:text="Просмотреть"/>
+            </td>
+            <td>
+                <a th:href="@{'/admin/edit_department/' + ${department.getDepartmentId()}}" th:text="Редактировать"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div>
+    <a th:href="@{'/'}">На главную</a>
+</div>
+
+</body>
+</html>

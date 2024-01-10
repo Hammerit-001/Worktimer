@@ -1,0 +1,1 @@
+alter table time_note add column on_work boolean;
